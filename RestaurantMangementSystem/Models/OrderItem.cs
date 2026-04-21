@@ -15,6 +15,6 @@ namespace RestaurantMangementSystem.Models
         public int Amount { get; set; }
         public decimal UnitPrice { get; set; }
         public List<int> SelectedAddonIDs { get; set; } = new ();
-
+        public int Quantity { get; set; }
     }
 }
