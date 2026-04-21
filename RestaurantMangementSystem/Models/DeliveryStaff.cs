@@ -10,8 +10,8 @@ namespace RestaurantMangementSystem.Models
     {
         public int StaffId { get; set; }
        public string FullName { get; set; } = "";
-        public string VechileType { get; set; } = "";
-        public int LicenseNumber { get; set; }
+        public string VehicleType { get; set; } = "";
+        public string LicenseNumber { get; set; } = "";
         public string AssignedArea { get; set; } = "";
         public int BranchId { get; set; }
         public bool IsAvailable { get; set; } = true;

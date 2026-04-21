@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace RestaurantMangementSystem.Models
 {
-    public class RecipeItem
+    public class Chef : Employee
     {
-        public int IngredientId { get; set; }
-        public int MenuItemId { get; set; }
-        public double QuantityRequired { get; set; }
+        public Chef() => Position = "Cheif";
+        public override string GetRole()
+        {
+            return "Cheif";
+        }
     }
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantMangementSystem.Models
 {
-    public class FeedBack
+    public class Feedback
     {
-        public int FeedBackId { get; set; }
+        public int FeedbackId { get; set; }
         public int OrderId { get; set; }
         public int CustomerId { get; set; }
         public string Comments { get; set; } = "";
