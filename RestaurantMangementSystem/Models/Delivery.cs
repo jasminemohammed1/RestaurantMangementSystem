@@ -15,6 +15,7 @@ namespace RestaurantMangementSystem.Models
         public int? DeliveryStaffId { get; set; }
         public string? FailureReason { get; set; }
         public string DeliveryAddress { get; set; } = "";
+        public int OrderId { get; set; }
 
     }
 }
