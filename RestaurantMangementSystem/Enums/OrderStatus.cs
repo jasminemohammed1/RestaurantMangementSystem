@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantMangementSystem.Enums
 {
-    internal enum OrderStatus
+    public enum OrderStatus
     {
         Pending,
         Preparing,

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantMangementSystem.Enums
 {
-    internal enum PaymentType
+    public enum PaymentType
     {
         Cash,
         Card,
