@@ -34,9 +34,8 @@ Overall, this project demonstrates how to build a structured backend system usin
   
 
 
-<img width="969" height="680" alt="Screenshot 2026-04-26 154052" src="https://github.com/user-attachments/assets/70c0a077-366a-466c-83de-83278b7b599a" />
-
 <img width="1046" height="680" alt="Screenshot 2026-04-26 152710" src="https://github.com/user-attachments/assets/e1bc5837-aed7-4f22-85f6-298d0348ca2b" />
+
 
 <img width="880" height="467" alt="Screenshot 2026-04-26 150238" src="https://github.com/user-attachments/assets/4662c445-057c-4742-bbfd-5fb63410755b" />
 
