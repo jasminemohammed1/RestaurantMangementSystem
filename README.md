@@ -26,10 +26,17 @@ One of the key parts of the system is the **Inventory Management logic** 📊. I
 
 Overall, this project demonstrates how to build a structured backend system using pure C# with OOP principles, clean separation of concerns, and realistic business logic simulation 🚀. It focuses on design, logic implementation, and system architecture rather than external frameworks or databases.
 <img width="687" height="547" alt="Screenshot 2026-04-26 153239" src="https://github.com/user-attachments/assets/29d4062b-10b7-44a8-b320-0253f42bbbda" />
+
+
 <img width="1299" height="734" alt="Screenshot 2026-04-26 153644" src="https://github.com/user-attachments/assets/eb280149-5694-4185-9e40-d0ce5055d1ba" />
-<img width="584" height="783" alt="Screenshot 2026-04-26 153344" src="https://github.com/user-attachments/assets/73fe5f8d-9143-445d-8671-f6da8a70009e" />
+
+<img width="584" height="783" alt="Screenshot 2026-04-26 153344" src="https://github.com/user-attachments/assets/73fe5f8d-9143-445d-8671-f6da8a70009e" 
+  
 <img width="618" height="637" alt="Screenshot 2026-04-26 153846" src="https://github.com/user-attachments/assets/4beb04f9-178e-467a-bed3-fd6dc1b85fd0" />
+
 <img width="969" height="680" alt="Screenshot 2026-04-26 154052" src="https://github.com/user-attachments/assets/70c0a077-366a-466c-83de-83278b7b599a" />
+
 <img width="1046" height="680" alt="Screenshot 2026-04-26 152710" src="https://github.com/user-attachments/assets/e1bc5837-aed7-4f22-85f6-298d0348ca2b" />
+
 <img width="880" height="467" alt="Screenshot 2026-04-26 150238" src="https://github.com/user-attachments/assets/4662c445-057c-4742-bbfd-5fb63410755b" />
 
