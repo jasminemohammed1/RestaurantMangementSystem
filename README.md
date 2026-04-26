@@ -25,19 +25,3 @@ The system also demonstrates **inheritance and polymorphism** 🧠 through emplo
 One of the key parts of the system is the **Inventory Management logic** 📊. It calculates required ingredients based on order items and recipes, checks branch stock availability, identifies shortages, and deducts inventory after order processing. This simulates a real restaurant supply system.
 
 Overall, this project demonstrates how to build a structured backend system using pure C# with OOP principles, clean separation of concerns, and realistic business logic simulation 🚀. It focuses on design, logic implementation, and system architecture rather than external frameworks or databases.
-<img width="687" height="547" alt="Screenshot 2026-04-26 153239" src="https://github.com/user-attachments/assets/29d4062b-10b7-44a8-b320-0253f42bbbda" />
-
-
-<img width="1299" height="734" alt="Screenshot 2026-04-26 153644" src="https://github.com/user-attachments/assets/eb280149-5694-4185-9e40-d0ce5055d1ba" />
-
-
-  
-
-
-<img width="1046" height="680" alt="Screenshot 2026-04-26 152710" src="https://github.com/user-attachments/assets/e1bc5837-aed7-4f22-85f6-298d0348ca2b" />
-
-
-
-
-<img width="880" height="467" alt="Screenshot 2026-04-26 150238" src="https://github.com/user-attachments/assets/4662c445-057c-4742-bbfd-5fb63410755b" />
-
