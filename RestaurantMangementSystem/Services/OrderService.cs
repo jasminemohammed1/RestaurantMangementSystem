@@ -127,5 +127,35 @@ namespace RestaurantMangementSystem.Services
 
 
     }
+
+        public static (bool sucesss , string message) StartPreparing(int orderId , int cheifId , int ?managerOverrideId = null)
+        {
+            var order = Data.DataBase.Orders.FirstOrDefault(x=>x.OrderId == orderId);
+            if (order is null)
+                return (false, "Order not found");
+            if (order.OrderStatus != OrderStatus.Pending)
+                return (false, "Order must be in pending state");
+            var employee = Data.DataBase.Employees.FirstOrDefault(x=>x.EmployeeId== cheifId);
+            if (employee is null || employee is not Chef)
+                return (false, "Employee must be a cheif");
+            if (!employee.AssignedBranchIds.Contains(order.BranchId))
+                return (false, "Cheif must be at same branch as the order");
+            bool isSufficient = InventoryService.IsSufficient(order.BranchId, order.Items);
+            if(!isSufficient)
+            {
+                if (managerOverrideId is null)
+                    return (false, "InSufficient Stock");
+                var manager = Data.DataBase.Employees.FirstOrDefault(x => x.EmployeeId == managerOverrideId);
+                if (manager is null || manager is not BranchManager)
+                    return (false, "Access Denied");
+                if (!manager.AssignedBranchIds.Contains(order.BranchId))
+                    return (false, "Manager must be at the same branch as the order");
+                order.ManagerOverrideId = managerOverrideId;
+                order.IsManagerOverridenUsed = true;
+            }
+            InventoryService.Dedcut(order.BranchId, order.Items);
+            order.OrderStatus = OrderStatus.Preparing;
+            return (true, "Order start preparing");
+        }
     }
 }
