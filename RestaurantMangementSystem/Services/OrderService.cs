@@ -172,5 +172,24 @@ namespace RestaurantMangementSystem.Services
             order.OrderStatus = OrderStatus.Served;
             return (true, "Order marked as served");
         }
+        public static (bool sucess , string message)  ProcessPayment(int orderId , int cashierId , PaymentType paymentType)
+        {
+            var order = DataBase.Orders.FirstOrDefault(x=>x.OrderId == orderId);
+            if (order is null) return (false, "Order not found");
+            if (order.OrderStatus != OrderStatus.Served)
+                return (false, "Must be served Order");
+            var cashier = DataBase.Employees.FirstOrDefault(x=>x.EmployeeId == cashierId);
+            if (cashier is null || cashier is not Cashier)
+                return (false, "Must be a chashier");
+            if (!cashier.AssignedBranchIds.Contains(order.BranchId))
+                return (false, "Cashier must be at same branch as the order");
+            order.PaymentMethod = paymentType;
+            order.OrderStatus = OrderStatus.Completed;
+            var Customer = DataBase.Customers.FirstOrDefault(x => x.CustomerId == order.CustomerId);
+            int eared = (int)Math.Floor(order.TotalAmount);
+            if (Customer is not null)
+                Customer.LoyaltyPoints += eared;
+            return (true, $"Payment Processed {paymentType} . Customer Earned {eared} Loyalty Points");
+        }
     }
 }
