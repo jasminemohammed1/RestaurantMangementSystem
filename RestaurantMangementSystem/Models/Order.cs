@@ -20,6 +20,8 @@ namespace RestaurantMangementSystem.Models
         public int HandledByEmployeeId { get; set; }
         public string ?DeliveryAddress { get; set; }
         public List<OrderItem> Items = new ();
+        public int? ManagerOverrideId { get; set; }
+        public bool IsManagerOverridenUsed { get; set; } = false;
 
     }
 }

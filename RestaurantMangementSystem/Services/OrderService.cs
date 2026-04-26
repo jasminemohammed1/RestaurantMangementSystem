@@ -157,5 +157,20 @@ namespace RestaurantMangementSystem.Services
             order.OrderStatus = OrderStatus.Preparing;
             return (true, "Order start preparing");
         }
+        public static (bool sucess , string message) ServeOrder(int orderId , int cheifId)
+        {
+            var order = Data.DataBase.Orders.FirstOrDefault(x => x.OrderId == orderId);
+            if (order is null)
+                return (false, "Order not found");
+            if (order.OrderStatus != OrderStatus.Preparing)
+                return (false, "Order must be in preparing state");
+            var emp = DataBase.Employees.FirstOrDefault(x => x.EmployeeId == cheifId);
+            if (emp is null || emp is not Chef)
+                return (false, "Employee must be a cheif");
+            if (!emp.AssignedBranchIds.Contains(order.BranchId))
+                return (false, "Cheif must be at same branch as order");
+            order.OrderStatus = OrderStatus.Served;
+            return (true, "Order marked as served");
+        }
     }
 }
