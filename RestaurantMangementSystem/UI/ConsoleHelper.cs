@@ -60,33 +60,32 @@ namespace RestaurantMangementSystem.UI
 
 
         }
-        public static int ReadInt(string prompt , int min = int.MinValue , int max =  int.MaxValue)
+        public static int ReadInt(string prompt, int min = int.MinValue, int max = int.MaxValue)
         {
-            while(true)
+            while (true)
             {
                 Console.Write($"\n  {prompt}: ");
-                if(int.TryParse(prompt, out int value) && value>=min && value<=max)
-                        return value;
+                if (int.TryParse(Console.ReadLine(), out int v) && v >= min && v <= max)
+                    return v;
                 Error($"Please enter a whole number between {min} and {max}.");
-
             }
         }
         public static decimal ReadDecimal(string prompt)
         {
             while (true)
             {
-
                 Console.Write($"\n  {prompt}: ");
-                if(decimal.TryParse(prompt,out decimal value) && value >0) return value;
+                if (decimal.TryParse(Console.ReadLine(), out decimal v) && v >= 0)
+                    return v;
                 Error("Please enter a valid positive number.");
             }
         }
-        public static string ReadString(string prompt , bool allowEmpty = false)
+        public static string ReadString(string prompt, bool allowEmpty = false)
         {
             while (true)
             {
                 Console.Write($"\n  {prompt}: ");
-                string input = Console.ReadLine() ?? "";
+                var input = Console.ReadLine() ?? "";
                 if (allowEmpty || !string.IsNullOrWhiteSpace(input))
                     return input;
                 Error("This field cannot be empty.");

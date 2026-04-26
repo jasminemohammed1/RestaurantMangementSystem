@@ -11,8 +11,8 @@ namespace RestaurantMangementSystem.UI
     {
          public static void Run()
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            while(true)
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            while (true)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Cyan;
