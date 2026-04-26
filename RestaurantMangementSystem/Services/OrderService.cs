@@ -6,8 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Reflection.Metadata.Ecma335;
+using System.Security;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RestaurantMangementSystem.Services
 {
@@ -190,6 +193,49 @@ namespace RestaurantMangementSystem.Services
             if (Customer is not null)
                 Customer.LoyaltyPoints += eared;
             return (true, $"Payment Processed {paymentType} . Customer Earned {eared} Loyalty Points");
+        }
+        public static (bool sucesss , string message) CancelOrder(int OrderId , int employeeId)
+        {
+            var Order = DataBase.Orders.FirstOrDefault(e => e.OrderId == OrderId);
+            if (Order is null)
+                return (false, "Order not found");
+
+            if (Order.OrderStatus == OrderStatus.Completed)
+                return (false, "Order Cant be in Cancel Completed Order");
+            if (Order.OrderStatus == OrderStatus.Canceled)
+                return (false, "Order already Cancelled");
+
+            var Employee = DataBase.Employees.FirstOrDefault(x => x.EmployeeId == employeeId);
+            if (Employee is null)
+                return (false, "Employee not found");
+            if (!Employee.AssignedBranchIds.Contains(Order.BranchId))
+                return (false, "Emplyee is not assigned to this branch");
+            if(Employee is Waiter || Employee is Cashier)
+            {
+                if(Order.OrderStatus!=OrderStatus.Preparing)
+                {
+                    return (false, "Waiter or Cashier can only cancel pending Orders");
+                }
+            }
+            else if (Employee is BranchManager)
+            {
+                if(Order.OrderType == OrderType.Delivery)
+                {
+                    var Delivery = DataBase.Deliveries.FirstOrDefault(x=>x.OrderId == OrderId);
+                    if(Delivery is not null && Delivery.DeliveryStatus == DeliveryStatus.OnTheWay && Delivery.DeliveryStaffId.HasValue)
+                    {
+                        return (false,"Cant Cancel : Order is already out for Delivery .");
+                    }
+                }
+            }
+            else
+            {
+                return (false, "You Dont have Pernission To Cancel Orders");
+            }
+            Order.OrderStatus = OrderStatus.Canceled;
+            return (true, "The Order Cancelled Sucessfully");
+
+
         }
     }
 }
