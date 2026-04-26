@@ -1,10 +1,7 @@
-﻿namespace RestaurantMangementSystem
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
-    }
-}
+﻿using RestaurantMangementSystem.Data;
+using RestaurantMangementSystem.UI;
+
+DataBase.Seed();
+MainMenue.Run();
+
+
